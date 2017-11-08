@@ -1,0 +1,63 @@
+{
+  "name": "prototypo-desktop",
+  "version": "1.0.0",
+  "description": "Create your own fonts in a few clicks on your desktop",
+  "main": "src/index.js",
+  "repository": "https://github.com/byte-foundry/prototypo-desktop",
+  "license": "MIT",
+  "private": true,
+  "author": "Prototypo",
+  "dependencies": {
+    "electron-compile": "^6.4.2"
+  },
+  "devDependencies": {
+    "electron-forge": "^4.1.2",
+    "electron-prebuilt-compile": "1.7.9"
+  },
+  "scripts": {
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "publish": "electron-forge publish"
+  },
+  "config": {
+    "forge": {
+      "make_targets": {
+        "win32": [
+          "squirrel"
+        ],
+        "darwin": [
+          "zip",
+          "dmg"
+        ],
+        "linux": [
+          "deb",
+          "rpm"
+        ]
+      },
+      "electronPackagerConfig": {
+        "name": "Prototypo",
+        "icon": "./icon"
+      },
+      "electronWinstallerConfig": {
+        "name": "Prototypo",
+        "loadingGif": "loading.gif",
+        "iconUrl": "http://localhost:5000/icon.ico",
+        "setupIcon": "./icon.ico"
+      },
+      "electronInstallerDMG": {
+        "icon": "./icon.icns",
+        "osxSign": true
+      },
+      "electronInstallerDebian": {},
+      "electronInstallerRedhat": {},
+      "github_repository": {
+        "owner": "yorunohikage",
+        "name": "prototypo-desktop"
+      },
+      "windowsStoreConfig": {
+        "packageName": "Prototypo"
+      }
+    }
+  }
+}
